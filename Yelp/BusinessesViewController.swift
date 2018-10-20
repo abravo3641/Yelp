@@ -11,6 +11,9 @@ import UIKit
 class BusinessesViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
     
     var businesses: [Business]!
+    var searchBar : UISearchBar!
+    var searchController : UISearchController!
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -19,6 +22,22 @@ class BusinessesViewController: UIViewController,UITableViewDataSource, UITableV
         tableView.delegate = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 120
+        
+        searchBar = UISearchBar()
+        searchBar.sizeToFit()
+        navigationItem.titleView = searchBar
+        searchDisplayController?.displaysSearchBarInNavigationBar = true
+        
+         searchController = UISearchController(searchResultsController: nil)
+        
+        
+         searchController.searchBar.sizeToFit()
+         navigationItem.titleView = searchController.searchBar
+        searchController.hidesNavigationBarDuringPresentation = false
+
+ 
+
+
         
         Business.searchWithTerm(term: "Thai", completion: { (businesses: [Business]?, error: Error?) -> Void in
             
