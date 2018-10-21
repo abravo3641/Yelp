@@ -1,10 +1,3 @@
-//
-//  YelpTests.swift
-//  YelpTests
-//
-//  Created by Timothy Lee on 9/19/14.
-//  Copyright (c) 2014 Timothy Lee. All rights reserved.
-//
 
 import UIKit
 import XCTest
